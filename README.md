@@ -1,2 +1,8 @@
 # iSoftware.ec
-Repositorio de aplicativo de la empresa iSofware para la administración y venta de insumos tecnológicos.
+Application repository of the iSofware company, for the administration and sale of technological inputs.
+
+Development team:
+- Diego Mantilla.
+- Erick Maldonado.
+- Ligia Maldonado.
+- Esteban Loachamin.
