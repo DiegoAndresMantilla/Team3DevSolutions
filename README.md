@@ -1,5 +1,5 @@
 # iSoftware.ec
-Application repository of the iSofware company, for the administration and sale of technological inputs.
+Application repository of the iSofware, app oriented to administration and sale of technological inputs.
 
 Development team:
 - Diego Mantilla.
