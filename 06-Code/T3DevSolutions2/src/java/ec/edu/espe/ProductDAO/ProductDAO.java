@@ -3,7 +3,6 @@ package ec.edu.espe.ProductDAO;
 
 import ec.edu.espe.ConnectDB.ConnectMongoDB;
 import ec.edu.espe.Model.Products;
-import ec.edu.espe.Model.Usuarios;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.mongodb.BasicDBObject;
@@ -15,11 +14,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.List;
 import org.bson.Document;
 import ec.edu.espe.Interfaces.ProductCrud;
 import com.mongodb.client.result.DeleteResult;
-
+import java.text.DecimalFormat;
+import com.mongodb.client.model.UpdateOptions;
+import org.bson.conversions.Bson;
+import com.mongodb.client.model.Updates;
+import com.mongodb.client.result.UpdateResult;
 
 public class ProductDAO implements ProductCrud {
     
@@ -59,32 +61,7 @@ public class ProductDAO implements ProductCrud {
            
 }
     
-     public ArrayList <Usuarios> getUsuarios() throws ParseException, IOException {
-       
-       ConnectMongoDB connectionmongodb = new ConnectMongoDB();
-       ArrayList<Usuarios> usuarios = new ArrayList<>();
-       MongoDatabase database = connectionmongodb.connection();
-       MongoCollection collection = database.getCollection("RegistroUsuarios");
-       MongoCursor<Document> cursor = collection.find().iterator();     
-        try {
-            
-            while (cursor.hasNext()) {
-                JsonObject jsonObject = new JsonParser().parse(cursor.next().toJson()).getAsJsonObject();
-                Usuarios users = new Usuarios();
-                users.setId(jsonObject.get("id").getAsInt());
-                users.setNombre(jsonObject.get("nombre").getAsString());
-                users.setApellido(jsonObject.get("apellido").getAsString());
-                users.setDireccion(jsonObject.get("direccion").getAsString());
-                users.setCedula(jsonObject.get("cedula").getAsString());             
-                usuarios.add(users);
-          }
-           
-       } finally {
-           cursor.close();
-       }
-        return usuarios;   
-           
-}
+     
              
 
     @Override
@@ -122,13 +99,10 @@ public class ProductDAO implements ProductCrud {
         MongoCollection<Document> collection = database.getCollection("Products");
         BasicDBObject query  = new BasicDBObject("id",ident);      
         Document doc = collection.find(query).first();
-        DeleteResult result = collection.deleteOne(query);
-                
-                 
+        DeleteResult result = collection.deleteOne(query); 
+        
         return false;
     }
-
-
 
     @Override
     public Products listProduct(int ident) {
@@ -154,9 +128,70 @@ public class ProductDAO implements ProductCrud {
                 producUnit.setDiscount_value((double) doc.get("discount_value"));
                 producUnit.setDiscount_price((double) doc.get("discount_price"));
                  
-                return producUnit;
+        return producUnit;       
+    }
+
+    @Override
+    public boolean addProduct(Products products) {
+            DecimalFormat df = new DecimalFormat();
+            ConnectMongoDB connectionmongodb = new ConnectMongoDB();
+            MongoDatabase database = connectionmongodb.connection();
+            ConnectMongoDB mongoDBMetodos = new ConnectMongoDB();
+            mongoDBMetodos.ConnectionMongo();
+            ProductDAO productdao = new ProductDAO();
+            MongoCollection<Document> collection = database.getCollection("Products");
             
-            
+            Document document = new Document();                     
+                document.put("id", products.getId());
+                document.put("name", products.getName());
+                document.put("brand", products.getBrand());
+                document.put("model", products.getModel());
+                document.put("stock", products.getStock());
+                document.put("dealer_price", products.getDealer_price());
+                document.put("subtotal", products.getSubtotal());
+                document.put("total_iva", products.getTotal_iva());
+                document.put("unit_profit", products.getUnit_profit());
+                document.put("total_profit", products.getTotal_profit());
+                document.put("apply_discount", products.getApply_discount());
+                document.put("discount_value", products.getDiscount_value());
+                document.put("apply_discount", products.getApply_discount());
+                document.put("discount_price", products.getDiscount_price());
+           
+            collection.insertOne(document);
+                
+        return false; 
+        
+    }
+
+    @Override
+    public boolean updateProduct(Products products) {
+        DecimalFormat df = new DecimalFormat();
+        ConnectMongoDB connectionmongodb = new ConnectMongoDB();
+        MongoDatabase database = connectionmongodb.connection();
+        MongoCollection collection = database.getCollection("Products");
+        Document document = new Document(); 
+        ProductDAO productdao = new ProductDAO();
+        int id=products.getId();
+        Document query = new Document().append("id",  id);
+        Bson updates = Updates.combine(                  
+                    Updates.set("name", products.getName()),
+                    Updates.set("brand", products.getBrand()),
+                    Updates.set("model", products.getModel()),
+                    Updates.set("stock", products.getStock()),
+                    Updates.set("dealer_price", products.getDealer_price()),
+                    Updates.set("subtotal", products.getSubtotal()),
+                    Updates.set("total_iva", products.getTotal_iva()),
+                    Updates.set("unit_profit", products.getUnit_profit()),
+                    Updates.set("total_profit", products.getTotal_profit()),
+                    Updates.set("apply_discount", products.getApply_discount()),
+                    Updates.set("discount_value", products.getDiscount_value()),
+                    Updates.set("discount_price", products.getDiscount_price())
+            );
+                 UpdateOptions options = new UpdateOptions().upsert(true);       
+                 UpdateResult result = collection.updateOne(query, updates, options);    
+        
+        
+        return false;
     }
 }
 

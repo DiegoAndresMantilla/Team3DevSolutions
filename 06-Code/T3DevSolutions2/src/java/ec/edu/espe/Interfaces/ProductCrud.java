@@ -9,6 +9,8 @@ import java.util.List;
 public interface ProductCrud {
     public Products listProduct(int ident);
     public boolean deleteProduct(int ident); 
+    public boolean addProduct(Products products);
+    public boolean updateProduct(Products products);
     /*Business Rules*/
     public float calculateIva(double subtotal);
     public float calculateUnitProfit(double subtotal, double dealer_price );
