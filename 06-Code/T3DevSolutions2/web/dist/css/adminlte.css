@@ -27,10 +27,10 @@
   --primary: #007bff;
   --secondary: #6c757d;
   --success: #28a745;
-  --info: #17a2b8;
+  --info: #ff0080;
   --warning: #ffc107;
   --danger: #dc3545;
-  --light: #f8f9fa;
+  --light: #ff0080;
   --dark: #343a40;
   --breakpoint-xs: 0;
   --breakpoint-sm: 576px;
@@ -64,7 +64,7 @@ body {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #212529;
+  color: #fff;
   text-align: left;
   background-color: #fff;
 }
@@ -6776,7 +6776,7 @@ button.bg-success:focus {
 }
 
 .bg-info {
-  background-color: #17a2b8 !important;
+  background-color: #ff0080!important;
 }
 
 a.bg-info:hover, a.bg-info:focus,
