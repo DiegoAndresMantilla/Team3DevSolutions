@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { ApiUrl } from "../services/apiServices";
 import { Link } from "react-router-dom";
 
-const InvoiceList = () => {
-  const [invoice, setClient] = useState();
-  const url = ApiUrl + "listInvoices";
+const UserList = () => {
+  const [user, setClient] = useState();
+  const url = ApiUrl + "listUsers";
   const fetchApi = async () => {
     const response = await fetch(url);
     const responseJSON = await response.json();
@@ -23,13 +23,14 @@ const InvoiceList = () => {
               <a href="./">Inicio</a>
             </li>
             <li class="breadcrumb-item">
-              <a href="./invoicesMenu">Menú</a>
+              <a href="./usersMenu">Menú</a>
             </li>
-            <li class="breadcrumb-item active">Lista de Facturas</li>
+            <li class="breadcrumb-item active">Lista de Usuarios</li>
           </ol>
         </div>
-        <h3 className="text-center">Facturas</h3>
-        <h4 className="text-left">Developer: Ligia Maldonado</h4>
+
+        <h3 className="text-center">Usuarios</h3>
+        <h4 className="text-left">Developer: Mateo Loachamin</h4>
         <div className="col-auto text-center"></div>
       </div>
 
@@ -37,19 +38,25 @@ const InvoiceList = () => {
         <thead>
           <tr className="text-center">
             <th scope="col">ID</th>
-            <th scope="col">ID Usuario</th>
-            <th scope="col">Fecha</th>
+            <th scope="col">Cédula</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Dirección</th>
+            <th scope="col">Teléfono</th>
           </tr>
         </thead>
         <tbody>
-          {!invoice
+          {!user
             ? "Loading"
-            : invoice.map((invoice, index) => {
+            : user.map((user, index) => {
                 return (
                   <tr className="table-info">
-                    <td className="text-center">{invoice.id_invoice}</td>
-                    <td className="text-center">{invoice.id_user}</td>
-                    <td className="text-center">{invoice.date}</td>
+                    <td className="text-center">{user.id_user}</td>
+                    <td className="text-center">{user.identification}</td>
+                    <td className="text-center">{user.name_user}</td>
+                    <td className="text-center">{user.lastname_user}</td>
+                    <td className="text-center">{user.address}</td>
+                    <td className="text-center">{user.phone}</td>
                   </tr>
                 );
               })}
@@ -62,7 +69,7 @@ const InvoiceList = () => {
       <br />
       <div id="control"></div>
       <div class="izquierda">
-        <a href="./invoicesMenu" class="btn btn-danger">
+        <a href="./usersMenu" class="btn btn-danger btn-lg">
           <span class="icon-house"></span>Regresar
         </a>
       </div>
@@ -70,4 +77,4 @@ const InvoiceList = () => {
   );
 };
 
-export default InvoiceList;
+export default UserList;

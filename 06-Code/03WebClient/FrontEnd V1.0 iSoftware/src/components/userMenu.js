@@ -2,7 +2,7 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../css/style.css";
 
-const invoiceMenu = () => {
+const userMenu = () => {
   return (
     <div className="contenedor">
       <div class=" d-flex flex-row-reverse ">
@@ -18,7 +18,7 @@ const invoiceMenu = () => {
         <div className=" row">
           <div className="col-md-3">
             <div class="card text-bg-secondary">
-              <a href="./invoices" class="btn btn-secondary">
+              <a href="./users" class="btn btn-secondary">
                 <div class="card-body">
                   <h5 class="card-title">Lista</h5>
                   <span class="icon-house"></span>Ver
@@ -28,7 +28,7 @@ const invoiceMenu = () => {
           </div>
           <div className="col-md-3 ">
             <div class="card text-bg-dark">
-              <a href="./invoicesForm" class="btn btn-dark">
+              <a href="./usersForm" class="btn btn-dark">
                 <div class="card-body">
                   <h5 class="card-title">Añadir</h5>
                   <span class="icon-house"></span>Ver
@@ -47,4 +47,4 @@ const invoiceMenu = () => {
   );
 };
 
-export default invoiceMenu;
+export default userMenu;

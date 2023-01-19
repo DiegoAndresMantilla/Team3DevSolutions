@@ -4,23 +4,44 @@ import "../css/style.css";
 
 const orderMenu = () => {
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col-md-3 ">
-          
+    <div className="contenedor">
+      <div class=" d-flex flex-row-reverse ">
+        <ol class="breadcrumb float-sm-left ">
+          <li class="breadcrumb-item">
+            <a href="./">Inicio</a>
+          </li>
+          <li class="breadcrumb-item active">Menú</li>
+        </ol>
+      </div>
+      <div className="container-space">
+        <br></br>
+        <div className=" row">
+          <div className="col-md-3">
+            <div class="card text-bg-secondary">
+              <a href="./orders" class="btn btn-secondary">
+                <div class="card-body">
+                  <h5 class="card-title">Lista</h5>
+                  <span class="icon-house"></span>Ver
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div className="col-md-3 ">
+            <div class="card text-bg-dark">
+              <a href="./ordersForm" class="btn btn-dark">
+                <div class="card-body">
+                  <h5 class="card-title">Añadir</h5>
+                  <span class="icon-house"></span>Ver
+                </div>
+              </a>
+            </div>
+          </div>
         </div>
-        <div className="col-md-3 ">
-          <a href="./orders" className="button blue medium radius">
-            <span class="icon-house"></span>ORDER LIST
+        <div class="izquierda">
+          <a href="./" class="btn btn-danger btn-lg">
+            <span class="icon-house"></span>Regresar
           </a>
-        </div>
-        <div className="col-md-3 ">
-          <a href="#" className="button red medium radius">
-            <span class="icon-house"></span>ADD ORDERS
-          </a>
-        </div>
-        <div className="col-md-3 ">
-          
         </div>
       </div>
     </div>

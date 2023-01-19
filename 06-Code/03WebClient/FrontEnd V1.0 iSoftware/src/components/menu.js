@@ -4,27 +4,51 @@ import "../css/style.css";
 
 const menu = () => {
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col-md-3 ">
-          <a href="#" className="button aqua medium radius">
-            <span class="icon-house"></span>PRODUCTS
-          </a>
+    <div className="container ">
+      <br></br>
+      <div className=" d-flex justify-content-evenly row ">
+        <div className="col-lg-3 col-6 ">
+          <div class="card text-bg-info  mb-3">
+            <a href="./productsMenu" class="btn btn-info">
+              <div class="card-body">
+                <h5 class="card-title">Productos</h5>
+                <span class="icon-house"></span>Ver
+              </div>
+            </a>
+          </div>
         </div>
-        <div className="col-md-3  ">
-          <a href="#" className="button green medium radius">
-            <span class="icon-house"></span>USERS
-          </a>
+        <div className="col-lg-3 col-6">
+          <div class="card text-bg-success mb-3">
+            <a href="./usersMenu" class="btn btn-success">
+              <div class="card-body">
+                <h5 class="card-title">Usuarios</h5>
+                <span class="icon-house"></span>Ver
+              </div>
+            </a>
+          </div>
         </div>
-        <div className="col-md-3 ">
-          <a href="./ordersMenu" className="button yellow medium radius">
-            <span class="icon-house"></span>ORDERS
-          </a>
+      </div>
+      <div className="d-flex justify-content-evenly row">
+        <div className="col-lg-3 col-6">
+          <div class="card text-bg-warning mb-3">
+            <a href="./invoicesMenu" class="btn btn-warning">
+              <div class="card-body">
+                <h5 class="card-title">Facturas</h5>
+                <span class="icon-house"></span>Ver
+              </div>
+            </a>
+          </div>
         </div>
-        <div className="col-md-3 ">
-          <a href="./invoicesMenu" className="button red medium radius">
-            <span class="icon-house"></span>INVOICE
-          </a>
+
+        <div className="col-lg-3 col-6">
+          <div class="card text-bg-danger mb-3">
+            <a href="./ordersMenu" class="btn btn-danger">
+              <div class="card-body">
+                <h5 class="card-title">Ordenes</h5>
+                <span class="icon-house"></span>Ver
+              </div>
+            </a>
+          </div>
         </div>
       </div>
     </div>
