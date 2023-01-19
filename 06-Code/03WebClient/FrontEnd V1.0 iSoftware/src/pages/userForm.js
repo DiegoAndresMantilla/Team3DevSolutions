@@ -1,14 +1,14 @@
 import React, { Component, useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import OrdersList from "../components/orderList";
 import Headboard from "../components/headboard";
+import UserForm from "../components/userForm";
 
 export default class usuarios extends Component {
   render() {
     return (
       <div>
         <Headboard />
-        <OrdersList />
+        <UserForm />
       </div>
     );
   }

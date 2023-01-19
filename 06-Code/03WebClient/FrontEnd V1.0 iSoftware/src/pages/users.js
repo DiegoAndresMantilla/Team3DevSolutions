@@ -1,6 +1,6 @@
 import React, { Component, useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import OrdersList from "../components/orderList";
+import UsersList from "../components/userList";
 import Headboard from "../components/headboard";
 
 export default class usuarios extends Component {
@@ -8,7 +8,7 @@ export default class usuarios extends Component {
     return (
       <div>
         <Headboard />
-        <OrdersList />
+        <UsersList />
       </div>
     );
   }
