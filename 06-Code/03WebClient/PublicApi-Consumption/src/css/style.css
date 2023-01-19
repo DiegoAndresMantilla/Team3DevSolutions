@@ -1,0 +1,119 @@
+.logo{
+    height: auto;
+    width:90px;
+    border-radius: 25px;
+    padding: 0px;
+}
+
+.logoespe{
+    height: 50%;
+    width: auto;
+    margin-top: 5%;
+}
+
+.divheadboard{
+    background-color: #f7f339;
+}
+
+/*Estilos Generales*/
+.button {
+	background:#7f8c8d;
+	color:#fff;
+	display:inline-block;
+	font-size:1.25em;
+	margin:20px;
+	padding:100px 0;
+	text-align:center;
+	width:200px;
+	text-decoration:none;
+	box-shadow:0px 3px 0px #373c3c;
+}
+
+.button span {
+	margin-right:10px;
+}
+
+/*Colores*/
+.button.blue {
+	background:#3498db;
+	box-shadow:0px 3px 0px #266792;
+}
+
+.button.yellow {
+	background:#d1b207;
+	box-shadow:0px 3px 0px #d1b207;
+}
+.button.green {
+	background:#0f702c;
+	box-shadow:0px 3px 0px #0f702c;
+}
+.button.red {
+	background:#b31515;
+	box-shadow:0px 3px 0px #b31515;
+}
+.card.orange {
+	background:#e46e1a;
+	box-shadow:0px 3px 0px #e46e1a;
+}
+.button.purple{
+	background:#6405a7;
+	box-shadow:0px 3px 0px #901ae4;
+}
+/*Tamaños*/
+.button.medium {
+	width:380px;
+}
+
+
+.button.large {
+	width:450px;
+}
+
+
+.button.radius {
+	border-radius:50px;
+}
+
+/*Efectos, Hover*/
+.button:hover {
+	box-shadow:0px 0px 0px;
+	padding-top:101px;
+}
+
+.colbutton{
+    margin-right: 10px;
+}
+
+.container {
+	margin: 0 auto;
+	max-width: 1500px; 
+}
+
+.container-nbar {
+	margin: 0 auto;
+	max-width: 1500px;
+}
+
+.contenedor {
+	margin: 0 auto;
+	max-width: 1200px;
+}
+
+.row {
+    text-align:center;
+}
+
+.container-space {
+	height:50px;
+  width:1600px;
+	margin-left: 22%;
+}
+.izquierda{
+	position: relative;
+	margin-top: 50px;
+  left: 42%;
+}
+
+.nbar-header{
+	margin-top: 2%;
+}
