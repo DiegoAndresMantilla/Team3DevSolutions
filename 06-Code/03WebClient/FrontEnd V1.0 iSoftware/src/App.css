@@ -6,6 +6,10 @@
   height: 40vmin;
   pointer-events: none;
 }
+.a{
+  color:white;
+  text-decoration:none;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -25,7 +29,7 @@
 }
 
 .App-link {
-  color: #61dafb;
+  color: #fdfdfd;
 }
 
 @keyframes App-logo-spin {
@@ -35,4 +39,8 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+body{
+    background-color: rgb(214, 225, 245);
 }
