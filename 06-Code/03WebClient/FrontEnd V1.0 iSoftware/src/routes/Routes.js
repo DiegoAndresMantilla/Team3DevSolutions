@@ -13,12 +13,14 @@ import FormProducts from "../pages/productForm";
 import FormUsers from "../pages/userForm";
 import FormInvoices from "../pages/invoiceForm";
 import FormOrders from "../pages/orderForm";
+import Login from "../pages/Login";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route exact path="/" element={<Principal />} />
+       <Route exact path="/" element={<Login />} />
+        <Route exact path="/principal" element={<Principal />} />
         <Route exact path="/invoices" element={<ListInvoices />} />
         <Route exact path="/invoicesMenu" element={<MenuInvoices />} />
         <Route exact path="/users" element={<ListUsers />} />
