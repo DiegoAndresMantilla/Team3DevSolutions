@@ -9,6 +9,7 @@ const UserSchema = new Schema({
   lastname_user: { type: String },
   address: { type: String },
   phone: { type: Number },
+  password:{type:String},
 });
 
 module.exports = Product = mongoose.model("User", UserSchema);

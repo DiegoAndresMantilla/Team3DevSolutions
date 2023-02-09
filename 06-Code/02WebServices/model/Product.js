@@ -11,7 +11,6 @@ const ProductSchema = new Schema({
   dealerPrice: { type: Number },
   subtotal: { type: Number },
   total_iva: { type: Number },
-  unit_profit: { type: Number },
   total_profit: { type: Number },
 });
 
