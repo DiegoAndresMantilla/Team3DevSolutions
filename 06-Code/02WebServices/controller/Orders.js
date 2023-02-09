@@ -25,6 +25,30 @@ const getOrders = (req, res) => {
     res.status(200).json(ordr);
   });
 };
+
+const getIdOrders = async (req, res) => {
+  try {
+    const OrdObj = await Order.findOne({
+      id_order: req.query.id_order
+    });
+    if (OrdObj == null) {
+      res.status(400).json("Order not found");
+    } else {
+      res.json({
+      id_product: OrdObj.id_product,
+      id_user: OrdObj.id_user,
+      id_invoice: OrdObj.id_invoice,
+      amount: OrdObj.amount,
+      total_order: OrdObj.total_order,
+      apply_discount: OrdObj.apply_discount,
+      discount_value: OrdObj.discount_value,
+      });
+    }
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 const updateOrder = (req, res) => {
   Order.findOneAndUpdate(
     { id_order: req.body.id_order },
@@ -45,11 +69,18 @@ const updateOrder = (req, res) => {
   );
 };
 
-const deleteOrder = (req, res) => {
-  Order.findOneAndDelete({ id_order: req.body.id_order }, (err, ordr) => {
-    err && res.status(501).send(err.message);
-    res.status(200).send(ordr);
-  });
+const deleteOrder = async (req, res) => {
+  try {
+    const id=req.query.id_order;
+    const order = await Order.findOneAndDelete({
+      id_order: id});
+    if (!order) {
+      return res.status(404).send("Order not found");
+    }
+    res.send(`Order with id ${id} deleted`); 
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 };
 
-module.exports = { createOrder, getOrders, updateOrder, deleteOrder };
+module.exports = { createOrder, getOrders, updateOrder, deleteOrder,getIdOrders };
